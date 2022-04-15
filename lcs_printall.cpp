@@ -62,27 +62,22 @@ int main()
 	vector<vector<int> > c(x.length()+1, vector<int>(y.length()+1, 0));
 	vector<vector<char> > b(x.length()+1, vector<char>(y.length()+1, ' '));
 	lcs_length_bu(x,y,c,b);
-	for(i = 0; i<x.length()+1; i++)
-	{
-		for (j = 0; j<y.length()+1; j++)
-			cout<<c[i][j]<<" ";
-		cout << endl;
-	}
+	// for(i = 0; i<x.length()+1; i++)
+	// {
+	// 	for (j = 0; j<y.length()+1; j++)
+	// 		cout<<c[i][j]<<" ";
+	// 	cout << endl;
+	// }
+	int max_length = c[x.length()][y.length()];
 	for (i = 0; i<x.length()+1; i++)
 	{
 		for(j = 0; j<y.length()+1; j++)
 		{
-			cout << b[i][j]<<" ";
+			//cout << b[i][j]<<" ";
+			if((c[i][j] == max_length)){
+				print_LCS(b,x,i, j);
+				cout<<endl;
+			}
 		}
-		cout << endl;
 	}
-
-	for(j = 0; j<y.length()+1; j++)
-	{
-        print_LCS(b,x,x.length(), j);
-        cout<<endl;
-	}
-	//cout << endl;
-
-	//print_LCS(b,x,x.length(), y.length());
 }
