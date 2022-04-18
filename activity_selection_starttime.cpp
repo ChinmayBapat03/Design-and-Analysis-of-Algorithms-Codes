@@ -39,12 +39,12 @@ ostream& operator<<(ostream& out, const activity& a)
 bool activity::operator<(const activity& a) const
 {
 	return (a.start)<(start);
-    //return a.finish<finish; // for starts last --- 
+    //return a.finish<finish; 
 }
 void recursive_activity_selector(priority_queue<activity> &pq, vector<activity> &v)
 {
     activity a;
-    // take activity with minimum finish time
+    // take activity with minimum start time
     a = pq.top();
     pq.pop();
     // select it and put it in vector
